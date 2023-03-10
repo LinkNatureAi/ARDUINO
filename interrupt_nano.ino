@@ -1,4 +1,10 @@
+#include <Arduino.h>
 //void ICACHE_RAM_ATTR ISRoutine (); only esp8266
+void ISRoutine() {
+  Serial.println("INTRERUPPT");
+  digitalWrite(LED_BUILTIN, 1);
+}
+
 void setup() {
   Serial.begin(115200);
   pinMode(2, INPUT_PULLUP);
@@ -13,9 +19,4 @@ void loop() {
   delay(1000);
   Serial.println("normal_run");
   delay(1000);
-}
-
-void ISRoutine() {
-  Serial.println("INTRERUPPT");
-  digitalWrite(LED_BUILTIN, 1);
 }
